@@ -5,19 +5,17 @@
 
 ### Socket & Socket Programming Explanation:
 
-<div style="padding-left: 20px;">
 Socket programming is a way of connecting two nodes on a network to communicate with each other. One socket/node listens on a particular port at an IP, while the other socket reaches out to the other to form the connection. So, **Sockets** allow communication between two different processes on the same or different machine. A socket is simply a file descriptor that enables remote communication.
-</div>
+
 
 ### Client/Server Communication Explanation:
 
-<div style="padding-left: 20px;">
 **Client/Server** communication involves two components, namely a client and a server. Usually multiple clients and one server for communication. Clients send requests to the server, and server respond to the clients' requests.
 
 > SYN -> ACK + SYN -> ACK .
 
 Client needs to know the server address to send request, also **client isn't on always** and initiates requests to the server whenever interested. But **server is always on** and if it won't, then when a client send a request, see an error(i.e., Connection Failed.), server is services requests from many clients, it doesn't initiate contact with any clients.
-</div>
+
 
 ### Starting Steps & Use Sockets:
 1. **Set a socket:** A combination of an IP address and a port number that acts as an endpoint for communication. For instance, *192.168.1.1:8009*, where the *192.168.1.1* is an IP and *8009* is a port number. Also socket types: **TCP Socket(Stream Socket)** and **UDP Socket(Datagram Socket)**.
@@ -33,12 +31,10 @@ Client needs to know the server address to send request, also **client isn't on 
 
 ### Create A Socket
 
-<div style="padding-left: 20px;">
 To create a communication endpoint, we use the `socket()` function. According to the `man` page in UNIX, this function creates an endpoint for communication and returns a file descriptor that refers to it. This descriptor is the lowest-numbered one not currently open for the process.
 From what I've gathered (by reading the man pages and doing a bit of searching), when we call `socket()`, the OS creates something like a communication door that we can use to send or receive data. The OS returns a file descriptor (an integer) that represents this socket, so we can refer to it in later calls (like `connect()`, `send()`, or `recv()`). So, it returns **a socket descriptor** on success, **-1** on failure.
 
 > `int socket(int domain, int type, int protocol);`
-</div>
 <br>
 
 1. **sockfd:** An integer instance of `socket()` for use it in later calls.
