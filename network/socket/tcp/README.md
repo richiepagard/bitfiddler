@@ -45,4 +45,29 @@ From what I've gathered (by reading the man pages and doing a bit of searching),
 
 4. **protocol:** This argument specifies a particular protocol to be used with the socket. Normally only a single protocol exists to support a particular socket type within a given protocol family, in which case protocol can be specified as 0. Though, it refers to *which specific protocol to use*. However, when we set `domain = AF_INET` and `type = SOCK_STREAM`, the system already knows we probably mean **TCP**.
 
+
+### Connect To Server
+Before sending requests, we need to connect the client to the server. Use `connect()` system call to initiate a connection on a socket.
+> `int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`
+
+It is used when the program wants to connect to another computer (or service) over a network using a socket.
+1. **sockfd:** It is the socket the program is using.
+2. **addr:** Which represents the destination (i.e., an IP address and port). The way it's formatted depends on the type of connection(e.g., IPv4 or IPv6) the socket is set up for.
+3. **addrlen:** Tells the system how big the `addr` information is.
+
+From what I've gathered (by reading the man pages and doing a bit of searching), when we call `connect()` we're actually connecting the socket referred to by the `sockfd` with the address specified by `addr` and the `addrlen` argument specifies the size of `addr`. Because our socket is a **SOCK_STREAM** which is used for **TCP**, when we call `connect()` it performs a 3-way handshake with the remote server and then a dedicated connection is established between the two machines :/ Then we can use `read()`, `recv()`, or `write()`, but we cannot send or receive data until this succeeds.
+
+
+### Send And Receive Packets
+Exchange data with the server. The steps:
+1. Write data (i.e., request) **to** the server.
+2. Read data (i.e., response) **from** the server.
+3. Process the data (e.g., display a Web page or just a simple message).
+
+### Close The Socket
+This is the last step after socket creation, client connection with a server, and send/receive packets. So, don't forget to close the socket descriptor after the communication is complete.
+> `close(sock_fd);`
+
+`sock_fd` is an instance of the `socket()` system call where I talked about it in **Create A Socket** section.
+
 ---
