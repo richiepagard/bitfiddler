@@ -64,6 +64,22 @@ Exchange data with the server. The steps:
 2. Read data (i.e., response) **from** the server.
 3. Process the data (e.g., display a Web page or just a simple message).
 
+#### System calls for sending and receiving packets:
+
+According to what I read, we need `read()` and `send()` system calls to send and receive messages. But I think it's appropriate to use `recv()` system call as well for receiving messages.
+
+1. `send()`: Used to send a message on a socket. The prototype is `ssize_t send(int sockfd, const void buf[.len], size_t len, int flags);` . So, this system call is used to transmit a message to another socket. Use `send()` system call when the connection is successful.
+
+	The argument `buf` is a pointer to the data to be sent; it contains the actual message to transmit. 
+	The argument `len` is the number of bytes to send from `buf`. It refers to how big the packet/message is. It means how much of the buffer is actually transmitted.
+	The argument `flags` provides extra options or settings for sending, like special instructions for how to send the packet/message. Usually written as `0` if no special behavior is needed. Read `man` page of `send()` for more details.
+
+2. `read()`: The method used to read from a file descriptor. The prototype is `ssize_t read(int fd, void buf[.count], size_t count);`. The method comes from `unistd.h` header file. So, `read()` attempts to read up to **count**  bytes from file descriptor **fd** into the buffer starting at **buf**. From what I've gathered (by reading the man pages and doing a bit of searching), `read()` is used to get data from a file, socket, or device. Then store it in memory.
+
+	The argument `fd` is the file descriptor -- a number that refers to an open file, socket, or device. So this argument refers to **the source to read from**.
+	The argument `buf` is a pointer to a buffer where the read data will be stored. Think of it like a box where the data is put. However, this argument refers to **where to read into**.
+	The argument `count` is the maximum number of bytes to read. Nevertheless, it refers to **how much to try to read**.
+
 ### Close The Socket
 This is the last step after socket creation, client connection with a server, and send/receive packets. So, don't forget to close the socket descriptor after the communication is complete.
 > `close(sock_fd);`
