@@ -1,0 +1,37 @@
+# Ignore compiled object files
+*.o
+
+# Ignore compiled binary files
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# Ignore debugging files
+*.dSYM/
+*.stackdump
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore build directories (if you use them)
+build/
+bin/
+obj/
+
+# Ignore IDE/editor specific files (customize based on your editor)
+*.vscode/
+*.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Ignore backup files
+*~
+
+# ignore local files
+reminder.md
+
