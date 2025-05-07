@@ -87,3 +87,23 @@ This is the last step after socket creation, client connection with a server, an
 `sock_fd` is an instance of the `socket()` system call where I talked about it in **Create A Socket** section.
 
 ---
+<br>
+
+# Typical Server Program
+
+### Create A Socket
+Just like the client: we call `socket()` to create a communication endpoint. Same parameters, same behavior.
+
+### Bind
+Bind a name to a socket. After creation a socket, the `bind()` method assigns it to a specific IP address and port number.
+
+> `int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`
+
+When a socket created with `socket()`, it belongs to an address family but has no specific address. The `bind()` assigns the address specified by `addr` to the socket referred to by the `sockfd`. The `addrlen` specifies the size(in bytes) of the address structure pointed to by `addr`. Traditionally, this operation is called **assigning a name to a socket**.
+From what I've gathered (by reading the man pages and doing a bit of searching), when we create a socket using `socket()`, it's like creating a phone --it exists, but it doesn't have a phone number yet. The `bind()` method gives the socket an address like assigning a phone number to the phone. We tell `bind()` what address to use (with the `addr` argument) and how big that address is (with `addrlen`).
+
+1. `sockfd`: Socket created using `socket()` system call.
+2. `addr`: A pointer to the `struct sockaddr` that contains the IP address and port number to bind the socket.
+3. `addrlen`: The size of the `addr` structure.
+
+---
