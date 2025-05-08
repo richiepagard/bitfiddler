@@ -106,4 +106,16 @@ From what I've gathered (by reading the man pages and doing a bit of searching),
 2. `addr`: A pointer to the `struct sockaddr` that contains the IP address and port number to bind the socket.
 3. `addrlen`: The size of the `addr` structure.
 
+### Listen
+In this step, server waits for a client to initiate a connection, the server is now in a passive mode. Use `listen()` to wait for incoming connections on a socket.
+
+> `int listen(int sockfd, int backlog);`
+
+- **`man` page description**: `listen()` marks the socket referred to by `sockfd` as a **passive socket** -- One that will be used to accept incoming connection requests using the `accept()` system call.
+
+	As we know now, `sockfd` is a file descriptor referring to the created socket.
+	The `backlog` argument specifies the size of the queue for pending connections -- i.e., connections that have been initiated by the client but not yet accepted by the server. If a new connection request arrives while the queue is full, the client may receive an error or timeout.
+	On success `0` is returned; on failure `-1` is returned.
+
+
 ---
