@@ -117,5 +117,14 @@ In this step, server waits for a client to initiate a connection, the server is 
 	The `backlog` argument specifies the size of the queue for pending connections -- i.e., connections that have been initiated by the client but not yet accepted by the server. If a new connection request arrives while the queue is full, the client may receive an error or timeout.
 	On success `0` is returned; on failure `-1` is returned.
 
+### Accept
+The `accept()` function is used when a server is waiting for clients to connect (like in a web server). When a client tries to connect, `accept()` picks the first one waiting, creates a new connection for it, and gives a new file descriptor (basically a number used to refer to that connection). This new connection is used to talk to that specific client.
+The original socket (the one waiting for connections) keeps working and can still accept more clients.
+
+> `int accept(int sockfd, struct sockaddr *_Nullable restrict addr, socklen_t *_Nullable restrict addrlen);`
+
+The argument `sockfd` is a socket that has been created with `socket()` system call, bound to a local address with `bind()`, and is listening for connections after a `listen()`.
+From what I've gathered (by reading the man pages and doing a bit of searching), the `addr` argument is where the server can get information about the client that just connected(like its IP address and port number). It's a pointer to `sockaddr` structure that holds that information. The format of this information depends on what kind of socket we're using (like IPv4 or IPv6). If client's address doesn't matter, can just put `NULL` for `addr` and `addrlen`, and then the system won't try to fill anything else.
+The argument `addrlen` is a pointer to a variable that specifies the length of the address structure.
 
 ---
