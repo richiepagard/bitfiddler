@@ -127,4 +127,8 @@ The argument `sockfd` is a socket that has been created with `socket()` system c
 From what I've gathered (by reading the man pages and doing a bit of searching), the `addr` argument is where the server can get information about the client that just connected(like its IP address and port number). It's a pointer to `sockaddr` structure that holds that information. The format of this information depends on what kind of socket we're using (like IPv4 or IPv6). If client's address doesn't matter, can just put `NULL` for `addr` and `addrlen`, and then the system won't try to fill anything else.
 The argument `addrlen` is a pointer to a variable that specifies the length of the address structure.
 
+### Send And Receive Data
+To process of exchanging data (sending and receiving) on the server side is basically the same as on the **Client Side**. After a connection is accepted (see `accept()`), the server can use `read()`, `recv()`, and `send()` to talk to the connected client.
+I already explained these functions in the **Send And Receive Packets** section under the Client Side.
+
 ---
