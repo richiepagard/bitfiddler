@@ -41,7 +41,7 @@ void client(char *message, char *server_ip, int server_port) {
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     // Check the socket creation status(failed or successful)
     if(sockfd < 0) {
-        perror("Socket Creation Failed\n");
+        perror("socket creation failed\n");
         exit(1);
     }
 
@@ -51,27 +51,27 @@ void client(char *message, char *server_ip, int server_port) {
 
     // Convert IP to binary and set it
     if(inet_pton(AF_INET, server_ip, &server_addr.sin_addr) <= 0) {
-        perror("Invalid Server Address\n");
+        perror("invalid server address\n");
         exit(1);
     }
 
     // Connect to server
     if(connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-        perror("Connection To The Server Failed\n");
+        perror("connection to the server failed\n");
         exit(1);
     }
 
     // Send message
     ssize_t bytes_sent = send(sockfd, message, strlen(message), 0);
     if(bytes_sent < 0) {
-        perror("Failed To Send Data To The Server\n");
+        perror("failed to send data to the server\n");
         exit(1);
     }
 
     // Receive response from the server and print the buffer data
     ssize_t bytes_read = read(sockfd, buffer, sizeof(buffer)-1);
     if(bytes_read < 0) {
-        perror("Receiving Data From The Server Failed\n");
+        perror("receiving data from the server failed\n");
         exit(1);
     }
 
