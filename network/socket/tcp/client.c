@@ -21,8 +21,8 @@ void client(char *message, char *server_ip, int server_port) {
     The client side used to send requests to the server.
 
     Arguments:
-        message(string): The data will be sent to the server.
-        server_ip(string): The IP of the server(e.g., 127.0.0.1) to connect to it.
+        message(char*): The data will be sent to the server.
+        server_ip(char*): The IP of the server(e.g., 127.0.0.1) to connect to it.
         server_port(int): The port number of the server to connect to.
 
     NOTE:
