@@ -6,7 +6,11 @@
 #include <arpa/inet.h>
 
 
+void server(char *response, int server_port);
+
+
 int main() {
+    server("Hello Client...", 8080);
 
     return 0;
 }
@@ -17,7 +21,7 @@ void server(char *response, int server_port) {
     Handles the server-side logic for receiving client requests and sending responses.
 
     Arguments:
-        response(string): The response message sent back to the client upon a successful connection.
+        response(char*): The response message sent back to the client upon a successful connection.
         server_port(int): The port number the server will bind to.
 
     NOTE:
@@ -51,4 +55,33 @@ void server(char *response, int server_port) {
     // Listen for connections with 9 backlog
     listen(server_fd, 9);
     printf("Server is listening on port \"%d\"...\n", server_port);
+
+    // Accept client connection
+    client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
+    if(client_fd < 0) {
+        perror("Accept Failed\n");
+        exit(1);
+    }
+
+    // Read data from client
+    ssize_t bytes_read = read(client_fd, buffer, sizeof(buffer)-1);
+    if(bytes_read < 0) {
+        perror("Receiving Data From The Client Failed\n");
+        exit(1);
+    }
+    // Ensure null-terminated
+    buffer[bytes_read] = '\0';
+
+    printf("Client Data: %s\n", buffer);
+
+    // Send response to the client
+    ssize_t bytes_send = send(client_fd, response, strlen(response), 0);
+    if(bytes_send < 0) {
+        perror("Sending Data To The Client Failed\n");
+        exit(0);
+    }
+
+    // Close the connections
+    close(server_fd);
+    close(client_fd);
 }
