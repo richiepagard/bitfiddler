@@ -131,4 +131,14 @@ The argument `addrlen` is a pointer to a variable that specifies the length of t
 To process of exchanging data (sending and receiving) on the server side is basically the same as on the **Client Side**. After a connection is accepted (see `accept()`), the server can use `read()`, `recv()`, and `send()` to talk to the connected client.
 I already explained these functions in the **Send And Receive Packets** section under the Client Side.
 
+### Close The Sockets
+We need to close the sockets as the last step. On the server side, we typically have two sockets.
+- `server_fd`: The listening socket, used to accept new clients.
+- `client_fd`: The connection socket, used to talk to a connected client.
+
+```c
+close(server_fd);
+close(client_fd);
+```
+
 ---
