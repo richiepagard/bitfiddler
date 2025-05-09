@@ -38,7 +38,7 @@ void server(char *response, int server_port) {
     // Create a socket
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if(server_fd < 0) {
-        perror("Socket Creation Failed\n");
+        perror("socket creation failed\n");
         exit(1);
     }
 
@@ -48,7 +48,7 @@ void server(char *response, int server_port) {
     server_addr.sin_port = htons(server_port);
 
     if( bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0 ) {
-        perror("Binding Operation Failed\n");
+        perror("binding operation failed\n");
         exit(1);
     }
 
@@ -59,14 +59,14 @@ void server(char *response, int server_port) {
     // Accept client connection
     client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
     if(client_fd < 0) {
-        perror("Accept Failed\n");
+        perror("accept failed\n");
         exit(1);
     }
 
     // Read data from client
     ssize_t bytes_read = read(client_fd, buffer, sizeof(buffer)-1);
     if(bytes_read < 0) {
-        perror("Receiving Data From The Client Failed\n");
+        perror("receiving data from the client failed\n");
         exit(1);
     }
     // Ensure null-terminated
@@ -77,7 +77,7 @@ void server(char *response, int server_port) {
     // Send response to the client
     ssize_t bytes_send = send(client_fd, response, strlen(response), 0);
     if(bytes_send < 0) {
-        perror("Sending Data To The Client Failed\n");
+        perror("sending data to the client failed\n");
         exit(0);
     }
 
