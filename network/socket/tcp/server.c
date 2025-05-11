@@ -48,40 +48,44 @@ void server(char *response, int server_port) {
     server_addr.sin_port = htons(server_port);
 
     if( bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0 ) {
-        perror("binding operation failed\n");
-        exit(1);
+            perror("binding operation failed\n");
+            exit(1);
+        }
+
+    while (1) {
+        // Listen for connections with 9 backlog
+        listen(server_fd, 9);
+        printf("\nServer is listening on port \"%d\"...\n", server_port);
+
+        // Accept client connection
+        client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
+        if(client_fd < 0) {
+            perror("accept failed\n");
+            exit(1);
+        }
+
+        // Read data from client
+        ssize_t bytes_read = read(client_fd, buffer, sizeof(buffer)-1);
+        if(bytes_read < 0) {
+            perror("receiving data from the client failed\n");
+            exit(1);
+        }
+        // Ensure null-terminated
+        buffer[bytes_read] = '\0';
+
+        printf("Client Data: %s\n", buffer);
+
+        // Send response to the client
+        ssize_t bytes_send = send(client_fd, response, strlen(response), 0);
+        if(bytes_send < 0) {
+            perror("sending data to the client failed\n");
+            exit(0);
+        }
+
+        // Close the client connection
+        close(client_fd);
     }
 
-    // Listen for connections with 9 backlog
-    listen(server_fd, 9);
-    printf("Server is listening on port \"%d\"...\n", server_port);
-
-    // Accept client connection
-    client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
-    if(client_fd < 0) {
-        perror("accept failed\n");
-        exit(1);
-    }
-
-    // Read data from client
-    ssize_t bytes_read = read(client_fd, buffer, sizeof(buffer)-1);
-    if(bytes_read < 0) {
-        perror("receiving data from the client failed\n");
-        exit(1);
-    }
-    // Ensure null-terminated
-    buffer[bytes_read] = '\0';
-
-    printf("Client Data: %s\n", buffer);
-
-    // Send response to the client
-    ssize_t bytes_send = send(client_fd, response, strlen(response), 0);
-    if(bytes_send < 0) {
-        perror("sending data to the client failed\n");
-        exit(0);
-    }
-
-    // Close the connections
+    // Close the server connection
     close(server_fd);
-    close(client_fd);
 }

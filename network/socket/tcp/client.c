@@ -11,6 +11,7 @@ void client(char *message, char *server_ip, int server_port);
 
 int main() {
     client("Hello World!", "127.0.0.1", 8080);
+    client("Just for test multiple messages.", "127.0.0.1", 8080);
 
     return 0;
 }
