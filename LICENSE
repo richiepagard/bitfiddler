@@ -1,4 +1,5 @@
-MIT License
+MIT License (for source code)
+-----------------------------
 
 Copyright (c) 2025 Richie
 
@@ -19,3 +20,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Documentation License (CC BY-NC-ND 4.0)
+---------------------------------------
+
+This documentation—including all written content, explanations, figures, diagrams, and structural design—is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit.
+- **NonCommercial** — You may not use the material for commercial purposes.
+- **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
+
+For any use beyond these terms—such as commercial, educational, derivative, or publishing rights—please contact the author:
+
+Email: richiepagard@gmail.com

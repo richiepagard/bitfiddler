@@ -19,6 +19,18 @@ You probably don't need to — but if you're also curious about low-level stuff,
 - Some things may break or be incomplete — that’s part of the process
 - I love low-level programming, old-school tools, and open-source. So I try to deeply understand what I implement here — because that love runs deep.
 
+## License
+
+This project uses multiple licenses to reflect the nature of its content:
+
+- **Source Code** is licensed under the [MIT License](./LICENSE).
+- **Documentation** (including this README) is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+See the [LICENSE](./LICENSE) file for complete details.
+
+## Contact Me
+
+Questions or comments? Reach me at [richiepagard@gmail.com](mailto:richiepagard@gmail.com)
 
 ---
 
