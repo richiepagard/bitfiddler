@@ -24,7 +24,7 @@ You probably don't need to — but if you're also curious about low-level stuff,
 This project uses multiple licenses to reflect the nature of its content:
 
 - **Source Code** is licensed under the [MIT License](./LICENSE).
-- **Documentation** (including this README) is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+- **Documentation** is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 See the [LICENSE](./LICENSE) file for complete details.
 
