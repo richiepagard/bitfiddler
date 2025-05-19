@@ -57,8 +57,14 @@ void wordLength(void) {
 		if ( (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z') ) ++word_length;
 	}
 
-	for (int i = 0; i < MAX_WORD_LENGTH_SIZE; ++i) {
-		// Print indexes which are only greater than 0
-		if (word_lengths[i] > 0) printf("%d: \n", word_lengths[i]);
+	for (int i = 0; i < MAX_WORD_LENGTH_SIZE; ++i)
+	{
+		for (int j = 0; j < i+1; ++j) {
+			// Check duplicate element in the array
+			if (word_lengths[i] != word_lengths[j]) {
+				// Print indexes which are only greater than 0
+				if (word_lengths[i] > 0) printf("%d: \n", word_lengths[i]);
+			}
+		}
 	}
 }
