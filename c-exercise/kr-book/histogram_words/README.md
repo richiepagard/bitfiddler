@@ -15,5 +15,6 @@ It appears in **Chapter 1**, under the topic of **Arrays**.
 - Managing **word boundaries** manually requires careful **state** control (i.e., knowing when we're inside or outside a word).
 - In C, **array subscripts always start at `0`**.
 - Characters in C are represented as **integers** (based on the **ACII** table), so we can use them in arithmetic and comparison.
+- Learned how to **remove duplicate elements** in an array.
 
 ---
