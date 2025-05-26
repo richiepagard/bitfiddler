@@ -2,7 +2,7 @@
 
 #define IN 1
 #define OUT 0
-#define MAX_WORD_LENGTH_SIZE 10
+#define MAX_WORD_LENGTH_SIZE 13
 
 
 void wordLength(void);
@@ -59,12 +59,26 @@ void wordLength(void) {
 
 	for (int i = 0; i < MAX_WORD_LENGTH_SIZE; ++i)
 	{
-		for (int j = 0; j < i+1; ++j) {
+		int is_duplicate = 0;
+
+		for (int j = 0; j < i; ++j)
+		{
 			// Check duplicate element in the array
-			if (word_lengths[i] != word_lengths[j]) {
-				// Print indexes which are only greater than 0
-				if (word_lengths[i] > 0) printf("%d: \n", word_lengths[i]);
+			if (word_lengths[i] == word_lengths[j]) {
+				is_duplicate = 1;
+				break;
 			}
+		}
+
+		if (!is_duplicate && word_lengths[i] > 0)
+		{
+			printf("%d: ", word_lengths[i]);
+
+			// Count how many times this word length appears
+			for (int counter = 0; counter < MAX_WORD_LENGTH_SIZE; ++counter) {
+				if (word_lengths[counter] == word_lengths[i]) printf("*");
+			}
+			printf("\n");
 		}
 	}
 }
