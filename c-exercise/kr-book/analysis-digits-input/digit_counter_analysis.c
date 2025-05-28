@@ -53,7 +53,7 @@ void digitCounter() {
 		if (digits[counter] > 0) {
 			printf("%d: ", counter);
 			// Print how many times this digit appeared
-			printf("%d Repetition.", digits[counter]);
+			printf("%d Repetitions.", digits[counter]);
 			printf("\n");
 		}
 	}
