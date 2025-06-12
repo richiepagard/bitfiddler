@@ -19,9 +19,13 @@ void commentRemover(int buffer_size) {
 	 * Output is the cleaned (no comment) version of the input.
 	 */
 	int character;
+	int counter;
 	char buffer[buffer_size];
 
-	for (int counter = 0; (counter < 500) && ((character = getchar()) != EOF); ++counter) buffer[counter] = character;
+	for (counter = 0; (counter < buffer_size-1) && ((character = getchar()) != EOF); ++counter) buffer[counter] = character;
+
+	buffer[counter] = '\0';
+	++counter;
 
 	printf("%s\n", buffer);
 }
