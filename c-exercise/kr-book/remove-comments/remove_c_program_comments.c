@@ -46,6 +46,17 @@ void commentRemover(int buffer_size) {
 			// Skip the newline/tab after comment to avoid affecting the next line
 			continue;
 		}
+		else if ( (buffer[i] == '/' && buffer[i + 1] == '*') || (buffer[i] == '*') )
+		{
+			// Skip the initial: /*
+			i += 2;
+
+			while ( (buffer[i] != '*' && buffer[i + 1] != '/') && (buffer[i] != '\0') ) ++i;
+			// Skip the closing (two last) characters
+			if (buffer[i] != '\0') i += 2;
+			// Skip the newline/tab after comment to avoid affecting the next line
+			continue;
+		}
 		else
 		{
 			// Copy the character to the output buffer 
