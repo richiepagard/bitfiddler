@@ -4,6 +4,7 @@
 void syntaxErrorChecker(void);
 
 int main() {
+	syntaxErrorChecker();
 
 	return 0;
 }
@@ -11,5 +12,10 @@ int main() {
 
 void syntaxErrorChecker(void) {
 	int character;
+
+	while ((character = getchar()) != EOF)
+	{
+		putchar(character);
+	}
 }
 
