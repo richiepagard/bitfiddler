@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-void digitCounter();
+void digit_counter();
 
 int main() {
-	digitCounter();
+	digit_counter();
 
 	return 0;
 }
 
 
-void digitCounter() {
+void digit_counter() {
 	/* Count digits in the user input.
 	 * This function reads characters from the standard input until `EOF`.
 	 * It counts how many times each digit (0-9) appears.
