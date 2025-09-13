@@ -2,16 +2,17 @@
 
 #define ARRAY_SIZE 26
 
-void histogramCharacters(void);
+void histogram_characters(void);
+
 
 int main() {
-    histogramCharacters();
+    histogram_characters();
 
     return 0;
 }
 
 
-void histogramCharacters(void) {
+void histogram_characters(void) {
     int character;
     int letters[ARRAY_SIZE];
 
