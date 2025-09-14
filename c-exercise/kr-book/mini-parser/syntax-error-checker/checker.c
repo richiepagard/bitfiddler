@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 
-void syntaxErrorChecker(void);
+void syntax_error_checker(void);
 
 int main() {
-	syntaxErrorChecker();
+	syntax_error_checker();
 
 	return 0;
 }
 
 
-void syntaxErrorChecker(void) {
+void syntax_error_checker(void) {
 	int character;
 
 	while ((character = getchar()) != EOF)
@@ -18,4 +18,3 @@ void syntaxErrorChecker(void) {
 		putchar(character);
 	}
 }
-
