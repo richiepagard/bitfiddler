@@ -5,16 +5,16 @@
 #define MAX_WORD_LENGTH_SIZE 13
 
 
-void wordLength(void);
+void word_length(void);
 
 
 int main() {
-	wordLength();
+	word_length();
 
 	return 0;
 }
 
-void wordLength(void) {
+void word_length(void) {
 	/*
 	Reads a stream of characters from standard input and counts the length of each word.
 	Stores the lengths in an array and prints the lengths of the words.
