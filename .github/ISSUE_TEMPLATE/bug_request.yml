@@ -1,5 +1,5 @@
-name: Bug or Improvement / New Algorithm Idea
-description: Report a bug, suggest improving an algorithm, or propose adding a new one
+name: Bug or Improvement / New Idea
+description: Report a bug, suggest improving, or propose adding a new one
 
 body:
   - type: textarea
@@ -30,4 +30,4 @@ body:
           - label: Optimize memory usage
 
     validations:
-      required: false
+      required: true
