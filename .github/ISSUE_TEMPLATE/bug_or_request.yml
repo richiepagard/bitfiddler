@@ -1,0 +1,19 @@
+name: Bug or Improvement / New Algorithm Idea
+description: Report a bug, suggest improving an algorithm, or propose adding a new one
+body:
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation
+      description: Describe the issue, error, or idea
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Tasks
+      options:
+        - label: 
+    validations:
+      required: false
