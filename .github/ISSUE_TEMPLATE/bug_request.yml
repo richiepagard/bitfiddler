@@ -1,5 +1,6 @@
 name: Bug or Improvement / New Algorithm Idea
 description: Report a bug, suggest improving an algorithm, or propose adding a new one
+
 body:
   - type: textarea
     id: explanation
@@ -12,8 +13,7 @@ body:
   - type: checkboxes
     id: tasks
     attributes:
-      label: Tasks
-      options:
-        - label: 
+        label: Tasks
+        description: Tasks this bug/feature has
     validations:
       required: false

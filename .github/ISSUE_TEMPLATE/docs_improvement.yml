@@ -1,5 +1,6 @@
 name: Documentation Improvement
 description: Suggest changes to comments, README, or examples for clarity
+
 body:
   - type: input
     id: location
