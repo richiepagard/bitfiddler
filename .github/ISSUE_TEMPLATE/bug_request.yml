@@ -4,16 +4,30 @@ description: Report a bug, suggest improving an algorithm, or propose adding a n
 body:
   - type: textarea
     id: explanation
+
     attributes:
       label: Explanation
       description: Describe the issue, error, or idea
+
     validations:
       required: true
 
   - type: checkboxes
     id: tasks
+
     attributes:
         label: Tasks
         description: Tasks this bug/feature has
+
+        options:
+          - label: Debug and fix a runtime error
+          - label: Improve algorithm performance
+          - label: Add a new low-level algorithm
+          - label: Refactor existing code for clarity
+          - label: Add comments or documentation
+          - label: Add test cases or example usage
+          - label: Explore edge cases
+          - label: Optimize memory usage
+
     validations:
       required: false
