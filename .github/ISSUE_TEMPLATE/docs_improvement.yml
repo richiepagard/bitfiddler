@@ -1,0 +1,26 @@
+name: Documentation Improvement
+description: Suggest changes to comments, README, or examples for clarity
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File or section where the documentation needs improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current Text / Issue
+      description: What is unclear, missing, or incorrect
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: Your proposed change or addition
+    validations:
+      required: true
