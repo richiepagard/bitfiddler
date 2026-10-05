@@ -18,11 +18,11 @@ void counter(void) {
 	 * contain ASCII letters, it does not count words
 	 * which only contain none ASCII letters.
 	 *
-	 * Explaination:
-	 *		state = OUT: If the state is OUT, means we are outside the word
+	 * NOTE:
+	 *		'state' = OUT: If the state is OUT, means we are outside the word
 	 *			and when we are outside a word,
 	 *			means we have just passed the last character of a word.
-	 *		state = IN: If the state is IN, means we are inside the word
+	 *		'state' = IN: If the state is IN, means we are inside the word
 	 *			which means the current character is not a blank, tab, or newline.
 	 */
 	int character;
@@ -38,8 +38,8 @@ void counter(void) {
 		if (character == ' ' || character == '\t' || character == '\n') {
 			state = OUT;
 		}
-		// Check if the state is OUT, increse the words-num
-		// and upadte state to IN for counting the incoming word
+		// Check if the state is OUT, increase the 'words number'
+		// and update state to IN for counting the incoming word
 		if (state == OUT) {
 			++words_num;
 			state = IN;
