@@ -49,7 +49,7 @@ void longest_line(void) {
 		++auxiliary_counter;
 		// Check if the current 'counter' value
 		// less than 'max-line-size' to avoid
-		// buffer-overfllow
+		// buffer-overflow
 		if (counter < MAX_LINE_SIZE-1) {
 			buffer[counter++] = character;
 		}

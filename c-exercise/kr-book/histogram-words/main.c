@@ -20,12 +20,12 @@ void word_length(void) {
 	Stores the lengths in an array and prints the lengths of the words.
 	Then, prints the histogram of the word lengths.
 
-	Note:
-		state (int): Tracks whether we're inside or outside a word.
-		word_length (int): Counts the lengths of the current word.
-		word_lengths (int[]): Stores the lengths of the words.
-		word_count (int): Counts the number of words.
-		MAX_WORD_LENGTH_SIZE (int): The maximum number of words to be counted.
+	NOTE:
+		'state' (int): Tracks whether we're inside or outside a word.
+		'word length' (int): Counts the lengths of the current word.
+		'word lengths' (int[]): Stores the lengths of the words.
+		'word count' (int): Counts the number of words.
+		'MAX WORD LENGTH SIZE' (int): The maximum number of words to be counted.
 	*/
 
 	int character;
@@ -46,7 +46,7 @@ void word_length(void) {
 				++word_count;
 			}
 
-			// Reset word_length to prepare it for the next word length
+			// Reset 'word length' to prepare it for the next word length
 			word_length = 0;
 			// Update state: we're outside a word now
 			state = OUT;
