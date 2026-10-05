@@ -21,7 +21,7 @@ void folding(int line_limit) {
     and print the rest of the line in the newline, repeat this until the last line character.
     Reset `counter` when insert a newline to start tracking with `0` again.
     */
-    
+
     char buffer[line_limit + 1];
 
     int character;
@@ -33,12 +33,12 @@ void folding(int line_limit) {
     {
         // Fill the buffer character by character
         buffer[counter] = character;
-        // Update `last_blank` to the current character position if reach to a blank
+        // Update 'last blank' to the current character position if reach to a blank
         if (character == ' ' || character == '\t') {
 			last_blank = counter;
 		}
 
-        // Increment `counter` to go to the next posision
+        // Increment 'counter' to go to the next position
         ++counter;
 
         if (counter == line_limit)
@@ -49,7 +49,7 @@ void folding(int line_limit) {
 				for (int i = 0; i < last_blank; ++i) putchar(buffer[i]);
 				putchar('\n');
 
-				// Shift the remaining chrs to start of buffer
+				// Shift the remaining characters to start of buffer
 				int j = 0;
 				for (int i = last_blank + 1; i < counter; ++i) buffer[j++] = buffer[i];
 
