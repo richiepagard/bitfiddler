@@ -15,12 +15,12 @@ void digit_counter() {
 	 * It counts how many times each digit (0-9) appears.
 	 * Also, track spaces, digits, and other characters.
 	 *
-	 * Arguments:
-	 *		character (int): User input :/.
-	 *		number_digit (int): Numbers of digits in the input.
-	 *		number_space (int): Numbers of spaces in the input.
-	 *		number_others (int): Numbers of other characters in the input.
-	 *		digits (integer array): Keep digits 0-9 in itself.
+	 * Key Variables:
+	 *		'character' (int): User input :/.
+	 *		'number digit' (int): Numbers of digits in the input.
+	 *		'number space' (int): Numbers of spaces in the input.
+	 *		'number others' (int): Numbers of other characters in the input.
+	 *		'digits' (integer array): Keep digits 0-9 in itself.
 	 */
 
 	int character;
@@ -35,14 +35,14 @@ void digit_counter() {
 	{
 		// Check if the current character is a digit between 0-9
 		if (character >= '0' && character <= '9') {
-			// Increse the count of the current digit in the array
+			// Increase the count of the current digit in the array
 			++digits[character - '0'];
 			// Increment total digit count
 			++number_digit;
 		}
-		// Check if the current character is space/tab/newline, increse the number_space quantity
+		// Check if the current character is space/tab/newline, increase the 'number space' quantity
 		else if (character == ' ' || character == '\t' || character == '\n') ++number_space;
-		// Otherwise, increse number_other quantity
+		// Otherwise, increase 'number other' quantity
 		else ++number_other;
 	}
 
