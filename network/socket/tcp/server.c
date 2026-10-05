@@ -21,11 +21,11 @@ void server(char *response, int server_port) {
     Handles the server-side logic for receiving client requests and sending responses.
 
     Arguments:
-        response(char*): The response message sent back to the client upon a successful connection.
-        server_port(int): The port number the server will bind to.
+        'response' (char*): The response message sent back to the client upon a successful connection.
+        'server port' (int): The port number the server will bind to.
 
     NOTE:
-        htons: make sure the port number is stored in the correct byte order for network communication.
+        'htons': make sure the port number is stored in the correct byte order for network communication.
     */
 
     int server_fd, client_fd;

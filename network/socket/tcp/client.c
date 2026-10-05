@@ -22,13 +22,13 @@ void client(char *message, char *server_ip, int server_port) {
     The client side used to send requests to the server.
 
     Arguments:
-        message(char*): The data will be sent to the server.
-        server_ip(char*): The IP of the server(e.g., 127.0.0.1) to connect to it.
-        server_port(int): The port number of the server to connect to.
+        'message' (char*): The data will be sent to the server.
+        'server IP' (char*): The IP of the server(e.g., 127.0.0.1) to connect to it.
+        'server port' (int): The port number of the server to connect to.
 
     NOTE:
-        htons: make sure the port number is stored in the correct byte order for network communication.
-        inet_pton: converts a human-readable IP address(127.0.0.1) to a binary format that sockets need.
+        'htons': make sure the port number is stored in the correct byte order for network communication.
+        'inet pton': converts a human-readable IP address(127.0.0.1) to a binary format that sockets need.
             So, string IP becomes packet network format.
     */
 
